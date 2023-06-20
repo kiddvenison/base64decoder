@@ -30,15 +30,14 @@ def process_string(input_string):
             decoded_word = decode_base64(word)
             if decoded_word is not None:
                 result[word] = decoded_word
-        else:
-            result[word] = "Not a base64 string"
 
     return result
 
 try:
     input_string = """
 
-    # paste your string here, line breaks can be included 
+    # paste your string with base64 encoding here, there may be line breaks in the content.
+
 
     """
     result = process_string(input_string)
