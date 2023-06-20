@@ -30,15 +30,25 @@ def process_string(input_string):
             decoded_word = decode_base64(word)
             if decoded_word is not None:
                 result[word] = decoded_word
+        else:
+            result[word] = "Not a base64 string"
 
     return result
 
-input_string = """"
+try:
+    input_string = """
 
-# paste your string here, line breaks can be included 
+    # paste your string here, line breaks can be included 
 
-"""
-result = process_string(input_string)
+    """
+    result = process_string(input_string)
 
-for encoded_text, decoded_text in result.items():
-    print(f"{encoded_text} | {decoded_text}")
+    if len(result) == 0:
+        print("No base64 encoding found in the provided string.")
+    else:
+        for encoded_text, decoded_text in result.items():
+            print(f"{encoded_text} | {decoded_text}")
+except Exception as e:
+    print(f"An issue occurred while running the script: {str(e)}")
+
+# end of script
